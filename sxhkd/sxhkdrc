@@ -1,0 +1,159 @@
+
+# terminal emulator
+super + Return
+	prime-run kitty
+
+# program launcher
+super + @space
+    rofi -show drun -theme ~/.config/rofi/src/rxyhn.rasi
+
+# make sxhkd reload its configuration files, confirm with a notification
+super + Escape
+	pkill -USR1 -x sxhkd && notify-send -u low -t 1500 "sxhkd" "config reloaded 🔄"
+
+
+#
+# app launchers (super + key)
+#
+
+super + b
+	prime-run vivaldi
+
+super + m
+	Exec=env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
+
+super + p
+	pavucontrol
+
+super + w
+	prime-run whatsie
+
+super + f
+  thunar
+
+super + n
+	netflix
+
+super + y
+	kitty -e yazi
+
+super + o
+	obsidian
+
+super + z
+	zathura
+
+super + v
+	vesktop
+
+# super + arrows: switch focused workspace (prev/next)
+super + {Left,Right}
+	bspc desktop -f {prev,next}.local
+
+# super + 1-6: switch focused workspace to a specific number
+super + {1-6}
+	bspc desktop -f '^{1-6}'
+
+
+
+# ctrl + shift + 1-6: move focused window to a specific workspace number AND follow it
+ctrl + shift + {1-6}
+	bspc node -d '^{1-6}' --follow
+
+# ctrl + alt + arrows: move focused window to prev/next workspace AND follow it (alt bind)
+ctrl + alt + {Left,Right}
+	bspc node -d {prev,next}.local --follow#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close / kill focused window
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# alternate between tiled and monocle layout
+super + slash
+	bspc desktop -l next
+
+# send newest marked node to newest preselected node
+super + shift + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap focused node with the biggest window
+super + g
+	bspc node -s biggest.window
+
+
+#
+# window state (alt only, no super)
+#
+
+alt + a
+	bspc node -t floating
+
+alt + f
+	bspc node -t fullscreen
+
+alt + t
+	bspc node -t tiled
+
+
+#
+# workspace movement
+#
+
+# super + arrows: switch focused workspace
+super + {Left,Right}
+	bspc desktop -f {prev,next}.local
+
+# ctrl + shift + 1-6: move focused window to a specific workspace number (no follow)
+ctrl + shift + {1-6}
+	bspc node -d '^{1-6}'
+
+
+#
+# screenshots (area / full screen / delayed)
+# saves to ~/Pictures/Screenshots, copies to clipboard, shows a dunst
+# notification with a thumbnail
+#
+
+super + alt + a
+	~/.local/bin/screenshot.sh area
+
+super + alt + s
+	~/.local/bin/screenshot.sh full
+
+super + alt + d
+	~/.local/bin/screenshot.sh delay
+
+
+#
+# session / power control
+#
+
+# log out back to the display manager (ly)
+ctrl + super + alt + q
+	bspc quit
+
+# reboot
+ctrl + super + alt + r
+	systemctl reboot
+
+# poweroff
+ctrl + super + alt + p
+	systemctl poweroff
+
+# lock screen
+ctrl + super + alt + l
+	betterlockscreen -l
+
+
+#
+# force kill a frozen/unresponsive application
+#
+
+super + alt + k
+	xkill
