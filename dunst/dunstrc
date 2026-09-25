@@ -1,0 +1,111 @@
+[global]
+    ### Display ###
+    monitor = 0
+    follow = mouse
+
+    ### Geometry ###
+    width = (300, 400)
+    height = 300
+    origin = top-right
+    offset = 16x40
+    scale = 0
+    notification_limit = 5
+
+    ### Progress bar ###
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 6
+
+    ### Shape ###
+    corner_radius = 14
+    transparency = 8
+    frame_width = 2
+    gap_size = 8
+
+    ### Text ###
+    font = JetBrainsMono Nerd Font 10
+    line_height = 2
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    ellipsize = middle
+    word_wrap = true
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    ### Icons ###
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 64
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/
+
+    ### History ###
+    sticky_history = yes
+    history_length = 20
+
+    ### Misc/Advanced ###
+    dmenu = rofi -dmenu -p dunst
+    browser = xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    ignore_dbusclose = false
+
+    ### Mouse ###
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    background = "#000000"
+    foreground = "#39ff88"
+    frame_color = "#39ff88"
+    timeout = 4
+    icon = dialog-information
+
+[urgency_normal]
+    background = "#000000"
+    foreground = "#d9b920"
+    frame_color = "#d9b920"
+    timeout = 6
+    icon = dialog-information
+
+[urgency_critical]
+    background = "#000000"
+    foreground = "#ff2ec4"
+    frame_color = "#ff2ec4"
+    timeout = 0
+    icon = dialog-warning
+
+[spotify]
+    appname = "Spotify"
+    background = "#000000"
+    foreground = "#1db954"
+    frame_color = "#1db954"
+
+[volume]
+    appname = "changeVolume"
+    background = "#000000"
+    foreground = "#ffd400"
+    frame_color = "#ffd400"
+
+[battery]
+    appname = "notify-send-battery"
+    background = "#000000"
+    foreground = "#ff7a00"
+    frame_color = "#ff7a00"
+
+[screenshot]
+    appname = "screenshot"
+    background = "#000000"
+    foreground = "#a259ff"
+    frame_color = "#a259ff"
