@@ -1,0 +1,323 @@
+/* /* ~/.config/gtk-3.0/gtk.css */
+/*    Global GTK3 override — black bg, rainbow accents on hover/focus/selection. */
+/*    Applies on top of whatever GTK theme you have set in settings.ini, so it */
+/*    works even if you keep a normal theme name set. */ */
+/**/
+/* @define-color rb_green   #00ff9c; */
+/* @define-color rb_cyan    #00d9ff; */
+/* @define-color rb_purple  #d16bff; */
+/* @define-color rb_yellow  #ffe135; */
+/* @define-color rb_teal    #00ffd0; */
+/* @define-color rb_pink    #ff9ff0; */
+/* @define-color rb_red     #ff3b3b; */
+/* @define-color rb_orange  #ffb02e; */
+/**/
+/* @define-color bg_black   #000000; */
+/* @define-color fg_white   #ffffff; */
+/* @define-color fg_dim     #999999; */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Base window / surfaces                                           */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* window, */
+/* .background, */
+/* .view, */
+/* .sidebar, */
+/* popover, */
+/* popover.background, */
+/* menu, */
+/* .menu { */
+/*   background-color: @bg_black; */
+/*   color: @fg_white; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Headerbars / titlebars                                           */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* headerbar, */
+/* .titlebar { */
+/*   background-color: @bg_black; */
+/*   color: @fg_white; */
+/*   border-bottom: 1px solid @rb_cyan; */
+/*   box-shadow: none; */
+/* } */
+/**/
+/* headerbar button, */
+/* .titlebar button { */
+/*   background-color: transparent; */
+/*   color: @fg_white; */
+/* } */
+/**/
+/* headerbar button:hover, */
+/* .titlebar button:hover { */
+/*   background-color: alpha(@rb_cyan, 0.15); */
+/*   color: @rb_cyan; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Buttons                                                           */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* button { */
+/*   background-color: @bg_black; */
+/*   color: @fg_white; */
+/*   border: 1px solid #333333; */
+/*   border-radius: 8px; */
+/*   transition: all 150ms ease-in-out; */
+/* } */
+/**/
+/* button:hover { */
+/*   border-color: @rb_green; */
+/*   color: @rb_green; */
+/*   box-shadow: 0 0 6px alpha(@rb_green, 0.5); */
+/* } */
+/**/
+/* button:active, */
+/* button:checked { */
+/*   border-color: @rb_pink; */
+/*   color: @rb_pink; */
+/*   box-shadow: 0 0 8px alpha(@rb_pink, 0.6); */
+/* } */
+/**/
+/* button.suggested-action { */
+/*   background-color: @bg_black; */
+/*   border-color: @rb_cyan; */
+/*   color: @rb_cyan; */
+/* } */
+/**/
+/* button.destructive-action { */
+/*   background-color: @bg_black; */
+/*   border-color: @rb_red; */
+/*   color: @rb_red; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Entries / text inputs                                            */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* entry { */
+/*   background-color: @bg_black; */
+/*   color: @fg_white; */
+/*   border: 1px solid #333333; */
+/*   border-radius: 6px; */
+/*   caret-color: @rb_yellow; */
+/* } */
+/**/
+/* entry:focus { */
+/*   border-color: @rb_yellow; */
+/*   box-shadow: 0 0 6px alpha(@rb_yellow, 0.5); */
+/* } */
+/**/
+/* entry selection { */
+/*   background-color: @rb_purple; */
+/*   color: @bg_black; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Selections / list rows / treeview                                */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* treeview, */
+/* list, */
+/* listview { */
+/*   background-color: @bg_black; */
+/*   color: @fg_white; */
+/* } */
+/**/
+/* treeview:selected, */
+/* list row:selected, */
+/* listview:selected, */
+/* row:selected { */
+/*   background-color: alpha(@rb_purple, 0.35); */
+/*   color: @rb_purple; */
+/* } */
+/**/
+/* treeview:hover, */
+/* list row:hover, */
+/* listview:hover, */
+/* row:hover { */
+/*   background-color: alpha(@rb_teal, 0.12); */
+/*   color: @rb_teal; */
+/* } */
+/**/
+/* /* generic text selection highlight (works in most GTK text widgets) */ */
+/* *:selected, */
+/* selection { */
+/*   background-color: @rb_purple; */
+/*   color: @bg_black; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Menus / context menus                                            */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* menuitem { */
+/*   color: @fg_white; */
+/*   background-color: @bg_black; */
+/* } */
+/**/
+/* menuitem:hover { */
+/*   background-color: alpha(@rb_orange, 0.18); */
+/*   color: @rb_orange; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Tabs (notebook / browser-style tabs)                              */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* notebook > header { */
+/*   background-color: @bg_black; */
+/*   border-color: #222222; */
+/* } */
+/**/
+/* notebook > header tab { */
+/*   background-color: @bg_black; */
+/*   color: @fg_dim; */
+/*   border-radius: 6px 6px 0 0; */
+/* } */
+/**/
+/* notebook > header tab:hover { */
+/*   color: @rb_cyan; */
+/*   box-shadow: inset 0 -2px @rb_cyan; */
+/* } */
+/**/
+/* notebook > header tab:checked { */
+/*   color: @rb_green; */
+/*   box-shadow: inset 0 -2px @rb_green; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Checkbuttons / radiobuttons                                      */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* checkbutton check, */
+/* radiobutton radio { */
+/*   background-color: @bg_black; */
+/*   border: 1px solid #444444; */
+/* } */
+/**/
+/* checkbutton check:checked, */
+/* radiobutton radio:checked { */
+/*   background-color: @rb_green; */
+/*   border-color: @rb_green; */
+/* } */
+/**/
+/* checkbutton:hover check, */
+/* radiobutton:hover radio { */
+/*   border-color: @rb_teal; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Switches                                                          */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* switch { */
+/*   background-color: #222222; */
+/*   border-radius: 999px; */
+/* } */
+/**/
+/* switch:checked { */
+/*   background-color: @rb_green; */
+/* } */
+/**/
+/* switch slider { */
+/*   background-color: @fg_white; */
+/*   border-radius: 999px; */
+/* } */
+/**/
+/* switch:hover { */
+/*   box-shadow: 0 0 6px alpha(@rb_green, 0.4); */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Sliders / scales                                                  */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* scale trough { */
+/*   background-color: #222222; */
+/*   border-radius: 999px; */
+/* } */
+/**/
+/* scale trough highlight { */
+/*   background-color: @rb_cyan; */
+/*   border-radius: 999px; */
+/* } */
+/**/
+/* scale slider { */
+/*   background-color: @fg_white; */
+/*   border-radius: 999px; */
+/* } */
+/**/
+/* scale slider:hover { */
+/*   background-color: @rb_cyan; */
+/*   box-shadow: 0 0 6px alpha(@rb_cyan, 0.6); */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Scrollbars                                                        */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* scrollbar { */
+/*   background-color: transparent; */
+/* } */
+/**/
+/* scrollbar slider { */
+/*   background-color: #333333; */
+/*   border-radius: 999px; */
+/*   min-width: 8px; */
+/*   min-height: 8px; */
+/* } */
+/**/
+/* scrollbar slider:hover { */
+/*   background-color: @rb_pink; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Tooltips                                                           */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* tooltip { */
+/*   background-color: @bg_black; */
+/*   color: @fg_white; */
+/*   border: 1px solid @rb_yellow; */
+/*   border-radius: 8px; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Links                                                              */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* *:link, */
+/* *:visited { */
+/*   color: @rb_cyan; */
+/* } */
+/**/
+/* *:link:hover, */
+/* *:visited:hover { */
+/*   color: @rb_pink; */
+/*   text-decoration: underline; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Progress bars                                                     */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* progressbar trough { */
+/*   background-color: #222222; */
+/*   border-radius: 999px; */
+/* } */
+/**/
+/* progressbar progress { */
+/*   background-color: @rb_green; */
+/*   border-radius: 999px; */
+/* } */
+/**/
+/* /* ---------------------------------------------------------------- */ */
+/* /* Focus ring (keyboard nav) — keep it visible but not overwhelming */ */
+/* /* ---------------------------------------------------------------- */ */
+/**/
+/* *:focus { */
+/*   outline-color: alpha(@rb_yellow, 0.6); */
+/* } */
