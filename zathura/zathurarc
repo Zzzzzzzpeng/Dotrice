@@ -1,0 +1,370 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║              🐈‍⬛ ZATHURA — EVERBLUSH / 2026              ║
+# ║              Dark • Vibrant • Modern • Rich               ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+
+# ============================================================
+# 🎨 EVERBLUSH PALETTE
+# ============================================================
+
+# Core
+set default-bg "#181f21"
+set default-fg "#dadada"
+
+# UI
+set statusbar-bg "#181f21"
+set statusbar-fg "#dadada"
+
+set inputbar-bg "#181f21"
+set inputbar-fg "#dadada"
+
+# Completion
+set completion-bg "#1f2628"
+set completion-fg "#6d7476"
+
+set completion-group-bg "#181f21"
+set completion-group-fg "#dadada"
+
+set completion-highlight-bg "#6da4cd"
+set completion-highlight-fg "#22292b"
+
+# Index
+set index-bg "#181f21"
+set index-fg "#dadada"
+
+set index-active-bg "#22292b"
+set index-active-fg "#dadada"
+
+# Notifications
+set notification-bg "#181f21"
+set notification-fg "#dadada"
+
+set notification-error-bg "#ff5555"
+set notification-error-fg "#dadada"
+
+set notification-warning-bg "#ffb86c"
+set notification-warning-fg "#22292b"
+
+# Search / highlight
+set highlight-color "#ffb86c"
+set highlight-active-color "#ff79c6"
+set highlight-fg "#22292b"
+
+# Signature states
+set signature-error-color "#ff5555"
+set signature-success-color "#8ccf7e"
+set signature-warning-color "#ffb86c"
+
+
+# ============================================================
+# 🔤 TYPOGRAPHY
+# ============================================================
+
+set font "JetBrainsMono Nerd Font normal 10"
+
+
+# ============================================================
+# 🪟 WINDOW / UI
+# ============================================================
+
+# s = statusbar
+# v = vertical scrollbar
+# h = horizontal scrollbar
+set guioptions "sv"
+
+set window-width 1200
+set window-height 800
+
+set window-title-basename true
+set window-title-home-tilde true
+set window-title-page true
+set window-icon-document true
+
+
+# ============================================================
+# 📄 DOCUMENT VIEW
+# ============================================================
+
+set adjust-open "best-fit"
+
+set pages-per-row 1
+set advance-pages-per-row true
+
+set page-h-padding 8
+set page-v-padding 12
+
+set page-right-to-left false
+set vertical-center true
+
+set open-first-page false
+
+set page-cache-size 20
+set page-thumbnail-size 8388608
+
+
+# ============================================================
+# 📜 SCROLL / NAVIGATION
+# ============================================================
+
+set scroll-step 50
+set scroll-hstep 50
+
+set scroll-full-overlap 0.05
+set scroll-page-aware true
+set scroll-wrap false
+
+set first-page-column "1:2"
+
+
+# ============================================================
+# 🔎 SEARCH
+# ============================================================
+
+set incremental-search true
+set nohlsearch false
+set search-hadjust true
+set abort-clear-search true
+
+set jumplist-size 5000
+
+
+# ============================================================
+# 🔍 ZOOM
+# ============================================================
+
+set zoom-step 10
+set zoom-min 10
+set zoom-max 1000
+set zoom-center true
+
+
+# ============================================================
+# 🔗 LINKS
+# ============================================================
+
+set double-click-follow true
+set link-hadjust true
+set link-zoom true
+
+
+# ============================================================
+# 📋 CLIPBOARD / SELECTION
+# ============================================================
+
+set selection-clipboard "clipboard"
+set selection-notification true
+
+
+# ============================================================
+# 🗃️ HISTORY / DATABASE
+# ============================================================
+
+set database "sqlite"
+set continuous-hist-save true
+
+set show-directories true
+set show-hidden true
+set show-recent 20
+
+set show-signature-information true
+
+
+# ============================================================
+# 🔄 FILE MONITOR / RELOAD
+# ============================================================
+
+set filemonitor "glib"
+
+
+# ============================================================
+# ⏳ RENDERING
+# ============================================================
+
+set render-loading true
+set render-loading-bg "#181f21"
+set render-loading-fg "#dadada"
+
+
+# ============================================================
+# 🌙 RECOLOR — OPTIONAL DARK PDF MODE
+# ============================================================
+
+# Disabled by default so photos/diagrams remain natural.
+set recolor false
+
+set recolor-lightcolor "#181f21"
+set recolor-darkcolor "#dadada"
+
+set recolor-keephue true
+set recolor-adjust-lightness true
+set recolor-reverse-video false
+
+
+# ============================================================
+# 🧭 KEYBOARD — NAVIGATION
+# ============================================================
+
+# Reload
+map r reload
+map R reload
+
+# Quit
+map q quit
+map Q quit
+
+# Page
+map J navigate next
+map K navigate previous
+
+# Fit
+map a adjust_window best-fit
+map s adjust_window width
+
+# Search
+map / search forward
+map ? search backward
+
+# Search results
+map n search forward
+map N search backward
+
+# Clear search
+map <Esc> nohlsearch
+
+
+# ============================================================
+# 🔍 KEYBOARD — ZOOM
+# ============================================================
+
+map + zoom in
+map = zoom in
+map - zoom out
+
+map zI zoom in
+map zO zoom out
+map z0 zoom in 100
+
+
+# ============================================================
+# 🧭 KEYBOARD — SCROLL
+# ============================================================
+
+map h scroll left
+map j scroll down
+map k scroll up
+map l scroll right
+
+map <C-d> scroll half-down
+map <C-u> scroll half-up
+
+map <C-f> scroll full-down
+map <C-b> scroll full-up
+
+map H scroll top
+map L scroll bottom
+
+map P snap_to_page
+
+
+# ============================================================
+# 📑 KEYBOARD — INDEX / TOC
+# ============================================================
+
+map <Tab> toggle_index
+map i toggle_index
+
+map <Space> navigate_index select
+
+
+# ============================================================
+# 🖥️ KEYBOARD — WINDOW
+# ============================================================
+
+map F11 toggle_fullscreen
+map F toggle_fullscreen
+
+map <C-m> toggle_inputbar
+map <C-n> toggle_statusbar
+
+
+# ============================================================
+# 🎨 KEYBOARD — RECOLOR
+# ============================================================
+
+map <C-r> recolor
+map R recolor
+
+
+# ============================================================
+# 📂 KEYBOARD — FILES
+# ============================================================
+
+map o file_chooser
+map O file_chooser
+
+
+# ============================================================
+# 🔗 KEYBOARD — LINKS
+# ============================================================
+
+map f follow
+map F display_link
+
+
+# ============================================================
+# 🔄 KEYBOARD — ROTATION
+# ============================================================
+
+map ] rotate rotate-cw
+map [ rotate rotate-ccw
+
+
+# ============================================================
+# 🧠 KEYBOARD — JUMP HISTORY
+# ============================================================
+
+map <C-o> jumplist backward
+map <C-i> jumplist forward
+
+
+# ============================================================
+# 🏷️ QUICKMARKS
+# ============================================================
+
+# mX = mark
+# 'X = jump
+# Example:
+# ma
+# 'a
+
+
+# ============================================================
+# 🖱️ MOUSE
+# ============================================================
+
+map <C-Button1> follow
+
+
+# ============================================================
+# 🧬 SYNCTEX
+# ============================================================
+
+set synctex true
+set synctex-edit-modifier "ctrl"
+
+
+# ============================================================
+# 🐈‍⬛ EVERBLUSH FINISH
+# ============================================================
+
+# Everblush signature:
+# Background : #181f21
+# Foreground : #dadada
+# Orange     : #ffb86c
+# Pink       : #ff79c6
+# Blue       : #6da4cd
+# Green      : #8ccf7e
+# Red        : #ff5555
+# Selection  : #22292b
+# Comment    : #6d7476
