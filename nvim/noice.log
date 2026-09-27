@@ -1,0 +1,175 @@
+{
+  event = "msg_showcmd",
+  kind = {}
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, ":", 0 } }
+}
+{ 0, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "", 0 } }
+}
+{ 10, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceDebug", 0 } }
+}
+{ 9, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceDebu", 0 } }
+}
+{ 8, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceDeb", 0 } }
+}
+{ 7, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceDe", 0 } }
+}
+{ 6, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceD", 0 } }
+}
+{ 5, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "Noice", 0 } }
+}
+{ 4, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "Noic", 0 } }
+}
+{ 3, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "Noi", 0 } }
+}
+{ 0, 0, 0, -1,
+  event = "popupmenu_show",
+  kind = { { "Noice", "", "", "" }, { "NoiceAll", "", "", "" }, { "NoiceConfig", "", "", "" }, { "NoiceDebug", "", "", "" }, { "NoiceDisable", "", "", "" }, { "NoiceDismiss", "", "", "" }, { "NoiceEnable", "", "", "" }, { "NoiceErrors", "", "", "" }, { "NoiceFzf", "", "", "" }, { "NoiceHistory", "", "", "" }, { "NoiceLast", "", "", "" }, { "NoiceLog", "", "", "" }, { "NoicePick", "", "", "" }, { "NoiceRoutes", "", "", "" }, { "NoiceSnacks", "", "", "" }, { "NoiceStats", "", "", "" }, { "NoiceTelescope", "", "", "" }, { "NoiceViewstats", "", "", "" } }
+}
+{ 5, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "Noice", 0 } }
+}
+{ 5, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "Noice", 0 } }
+}
+{
+  event = "popupmenu_select",
+  kind = 1
+}
+{ 8, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceAll", 0 } }
+}
+{
+  event = "popupmenu_select",
+  kind = 2
+}
+{ 11, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceConfig", 0 } }
+}
+{
+  event = "popupmenu_select",
+  kind = 3
+}
+{ 10, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceDebug", 0 } }
+}
+{
+  event = "popupmenu_select",
+  kind = 4
+}
+{ 12, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceDisable", 0 } }
+}
+{
+  event = "popupmenu_select",
+  kind = 5
+}
+{ 12, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceDismiss", 0 } }
+}
+{
+  event = "popupmenu_select",
+  kind = 6
+}
+{ 11, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceEnable", 0 } }
+}
+{
+  event = "popupmenu_select",
+  kind = 7
+}
+{ 11, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceErrors", 0 } }
+}
+{
+  event = "popupmenu_select",
+  kind = 8
+}
+{ 8, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceFzf", 0 } }
+}
+{
+  event = "popupmenu_select",
+  kind = 9
+}
+{ 12, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "NoiceHistory", 0 } }
+}
+{
+  event = "popupmenu_hide"
+}
+{ false,
+  event = "cmdline_hide",
+  kind = 1
+}
+{
+  event = "msg_showcmd",
+  kind = {}
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "G", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "2", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, '"+y', 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = {}
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, ":", 0 } }
+}
+{ 0, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "", 0 } }
+}
+{ 1, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "q", 0 } }
+}
+{ 2, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "qa", 0 } }
+}
+{ false,
+  event = "cmdline_hide",
+  kind = 1
+}
