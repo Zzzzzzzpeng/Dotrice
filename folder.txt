@@ -1,0 +1,50 @@
+.
+├── assets
+│   ├── bspwm.png
+│   ├── eww.png
+│   └── plyspotify.png
+├── bspwm
+│   ├── bspwmrc
+│   ├── keybinds.md
+│   └── polybar.sh
+├── dunst
+│   └── dunstrc
+├── eww
+│   ├── eww.scss
+│   └── eww.yuck
+├── folder.txt
+├── gtk-3.0
+│   ├── bookmarks
+│   ├── gtk.css
+│   └── settings.ini
+├── kitty
+│   ├── kitty.conf
+│   └── theme.conf
+├── nvim
+│   ├── init.lua
+│   ├── lazy-lock.json
+│   ├── LICENSE
+│   ├── lua
+│   │   ├── autocmds.lua
+│   │   ├── chadrc.lua
+│   │   ├── configs
+│   │   │   ├── chunk.lua
+│   │   │   ├── conform.lua
+│   │   │   ├── lazy.lua
+│   │   │   └── lspconfig.lua
+│   │   ├── mappings.lua
+│   │   ├── options.lua
+│   │   └── plugins
+│   │       └── init.lua
+│   ├── noice.log
+│   └── README.md
+├── picom
+│   └── picom.conf
+├── README.md
+├── rofi
+│   └── src
+│       └── rxyhn.rasi
+├── sxhkd
+│   └── sxhkdrc
+└── zathura
+    └── zathurarc

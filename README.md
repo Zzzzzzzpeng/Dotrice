@@ -1,77 +1,38 @@
-# 🌈 Dotrice
+# 🌈 Dotrice: My Digital Yard 🐧
 
-> 🐧 My personal Linux dotfiles, built around **bspwm**, **Neovim**, **Kitty**, **Rofi**, **Dunst**, **Picom**, **Zathura**, and **GTK**.
+> **Wagwan!** 👋 Welcome to my personal Linux dotfiles. 
+> Fully patterned around **bspwm**, **Neovim**, and **Kitty**.
 
-A simple, keyboard-driven Linux setup focused on **coding, studying, and everyday use**.
-Nothing fancy for the sake of being fancy. Just a desktop that feels right. 💻✨
-
-## 🖼️ Preview
-
-![BSPWM Desktop Preview](assets/bspwm.png)
-
-## 🧩 Stack
-
-```text
-Arch Linux
-├── 🪟 bspwm     → Window manager
-├── ⌨️ sxhkd     → Keybindings
-├── 📝 Neovim    → Editor
-├── 🐱 Kitty     → Terminal
-├── 🚀 Rofi      → Launcher
-├── 🔔 Dunst     → Notifications
-├── ✨ Picom     → Compositor
-├── 📖 Zathura   → Document reader
-└── 🎨 GTK       → Theme & styling
-```
-
-## 📁 Structure
-
-```text
-Dotrice/
-├── bspwm/
-├── dunst/
-├── eww/
-├── gtk-3.0/
-├── kitty/
-├── nvim/
-├── picom/
-├── rofi/
-├── sxhkd/
-├── zathura/
-└── assets/
-```
-
-Each directory contains the configuration for that part of the desktop.
-
-## ⚡ Philosophy
-
-```text
-⚡ Fast
-⌨️ Keyboard-driven
-🎨 Clean
-🧠 Simple
-🛠️ Customisable
-🐧 Linux-first
-```
-
-> This is not meant to be a universal rice.
-> It's just my setup. It gets changed, broken, rebuilt, and tweaked constantly. 😭
-
-## 🛠️ Setup
-
-```bash
-git clone https://github.com/Zzzzzzzpeng/Dotrice.git ~/Dotrice
-cd ~/Dotrice
-```
-
-Copy or symlink the configs you need into:
-
-```text
-~/.config/
-```
-
-Back up your existing configuration before replacing anything.
+No long ting here, fam. This is a bare simple, keyboard-driven Linux setup sorted for **grafting (coding), studying, and everyday vibes**. We don't do flashy for the sake of it—just a cold desktop that feels proper. 💻✨
 
 ---
 
-🌈 **Built for coding, studying, tinkering, and making Linux feel like home.**
+## 📸 Peak Aesthetics (Previews)
+
+Check the views, yeah? Looking absolutely peng.
+
+### The Gaff (Desktop)
+![BSPWM Desktop Preview](assets/bspwm.png)
+
+### Eww Widgets 
+![EWW Preview](assets/eww.png)
+
+### Spotify Plyctl
+![EWW Preview](assets/plyspotify.png)
+
+---
+
+## 🧩 The Mandem (Tech Stack)
+
+Everything running on **Arch Linux**, obviously. 
+
+```text
+├── 🪟 bspwm     → Window manager (Keeps tings tidy)
+├── ⌨️ sxhkd     → Keybindings (Moving mad quick)
+├── 📝 Neovim    → Editor (Where the real grafting happens)
+├── 🐱 Kitty     → Terminal (Bare fast)
+├── 🚀 Rofi      → Launcher (Say less, just type)
+├── 🔔 Dunst     → Notifications (Who's calling?)
+├── ✨ Picom     → Compositor (Making it look elite)
+├── 📖 Zathura   → Document reader (For the uni tings)
+└── 🎨 GTK       → Theme & styling (Looking sharp, bruv)
