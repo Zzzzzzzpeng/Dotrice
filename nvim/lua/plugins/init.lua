@@ -395,81 +395,15 @@ return {
     },
   },
 
-  {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
-
-    opts = {
-      preview = {
-        enable = true,
-        icon_provider = "internal",
-        debounce = 100,
-      },
-
-      markdown = {
-        enable = true,
-
-        headings = {
-          shift_width = 1,
-        },
-
-        tables = {
-          enable = true,
-        },
-
-        block_quotes = {
-          enable = true,
-        },
-
-        code_blocks = {
-          enable = true,
-        },
-
-        list_items = {
-          enable = true,
-        },
-
-        horizontal_rules = {
-          enable = true,
-        },
-      },
-
-      markdown_inline = {
-        enable = true,
-
-        checkboxes = {
-          enable = true,
-        },
-
-        emojis = {
-          enable = true,
-        },
-
-        hyperlinks = {
-          enable = true,
-        },
-
-        inline_codes = {
-          enable = true,
-        },
-      },
-    },
-
-    keys = {
-      {
-        "<leader>m",
-        "<cmd>Markview<CR>",
-        desc = "Toggle Markview",
-      },
-
-      {
-        "<leader>ms",
-        "<cmd>Markview splitToggle<CR>",
-        desc = "Toggle Markview Split",
-      },
-    },
-  },
-
+ {
+  "iamcco/markdown-preview.nvim",
+  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  build = "cd app && yarn install",
+  init = function()
+    vim.g.mkdp_filetypes = { "markdown" }
+  end,
+  ft = { "markdown" },
+},
   {
     "folke/noice.nvim",
     event = "VeryLazy",

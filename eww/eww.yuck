@@ -1,0 +1,228 @@
+;; ======================================================================
+;; NEOFTECH // EVERBLUSH PROFILE
+;; Compact profile + links + devicon strip + manual work mode
+;; Source for dev stack: GitHub README.md (Zzzzzzzpeng)
+;; ======================================================================
+
+;; ------------------------------ PROFILE -------------------------------
+(defvar profile_name "Peng")
+(defvar profile_role "Local AI • Agents • Automation • STEM • Robotics")
+(defvar profile_bio "21 • Semester 7 • Bachelor of Information Systems • Universitas Terbuka")
+(defvar profile_future "Computer Vision • System Control • Low-Level • Chips • Robotics")
+(defvar profile_image "/home/rebecca/Pictures/ProfilePictures/ss.png")
+
+(defvar mode "AI")
+
+;; ------------------------------- CLOCK --------------------------------
+(defpoll current_time
+  :interval "5s"
+  :initial "--:--"
+  "date '+%H:%M'")
+
+(defpoll current_date
+  :interval "30s"
+  :initial "--"
+  "date '+%a • %d %b'")
+
+(defpoll uptime_text
+  :interval "15s"
+  :initial "--"
+  "uptime -p | sed 's/^up //; s/,//g' | cut -d' ' -f1-2")
+
+(defpoll cpu_temp
+  :interval "10s"
+  :initial "--°C"
+  "if command -v sensors >/dev/null 2>&1; then sensors 2>/dev/null | awk '/Package id 0:/ {print $4; exit} /Tctl:/ {print $2; exit} /Tdie:/ {print $2; exit}' | tr -d '+' | sed 's/$/°C/'; else echo '--°C'; fi")
+
+;; ------------------------------- GITHUB -------------------------------
+(defpoll github_state
+  :interval "2m"
+  :initial "OFF"
+  "if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then echo 'SYNC'; else echo 'OFF'; fi")
+
+;; ------------------------------ WAKATIME ------------------------------
+(defpoll wakatime_today
+  :interval "5m"
+  :initial "--"
+  "WAKA_KEY=\"$(printenv WAKATIME_API_KEY 2>/dev/null)\"; if [ -z \"$WAKA_KEY\" ]; then WAKA_KEY=\"$(awk -F= '/^[[:space:]]*api_key[[:space:]]*=/{gsub(/[[:space:]]/,\"\",$2); print $2; exit}' \"$HOME/.wakatime.cfg\" 2>/dev/null)\"; fi; if [ -z \"$WAKA_KEY\" ] || ! command -v curl >/dev/null 2>&1 || ! command -v jq >/dev/null 2>&1; then echo '--'; else AUTH=$(printf '%s:' \"$WAKA_KEY\" | base64 | tr -d '\\n'); DATA=$(curl -fsS --max-time 8 -H \"Authorization: Basic $AUTH\" \"https://wakatime.com/api/v1/users/current/summaries?start=$(date +%F)&end=$(date +%F)\" 2>/dev/null); if [ -n \"$DATA\" ]; then echo \"$DATA\" | jq -r '(.data[0].grand_total.text // \"0 secs\")'; else echo '--'; fi; fi")
+
+(defpoll wakatime_state
+  :interval "5m"
+  :initial "OFF"
+  "WAKA_KEY=\"$(printenv WAKATIME_API_KEY 2>/dev/null)\"; if [ -z \"$WAKA_KEY\" ]; then WAKA_KEY=\"$(awk -F= '/^[[:space:]]*api_key[[:space:]]*=/{gsub(/[[:space:]]/,\"\",$2); print $2; exit}' \"$HOME/.wakatime.cfg\" 2>/dev/null)\"; fi; if [ -n \"$WAKA_KEY\" ] && command -v curl >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then echo 'SYNC'; else echo 'OFF'; fi")
+
+;; ----------------------------- COMPONENTS ----------------------------
+(defwidget skill_item [icon text accent]
+  (box
+    :orientation "h"
+    :space-evenly false
+    :spacing 8
+    :class "skill-item"
+    (label :text icon :class "skill-icon" :style "color: ${accent};")
+    (label :text text :class "skill-label")))
+
+(defwidget icon_button [glyph tooltip url class_name]
+  (button
+    :onclick "xdg-open ${url}"
+    :tooltip tooltip
+    :class "${class_name} icon-button"
+    glyph))
+
+(defwidget activity_link [glyph tooltip url state accent]
+  (box
+    :orientation "v"
+    :space-evenly false
+    :spacing 3
+    :class "activity-item"
+    (button
+      :onclick "xdg-open ${url}"
+      :tooltip tooltip
+      :class "icon-button ${accent}"
+      glyph)
+    (box
+      :orientation "h"
+      :space-evenly false
+      :spacing 3
+      :halign "center"
+      (label :text "●" :class "activity-dot" :style "color: ${accent};")
+      (label :text state :class "activity-state"))))
+
+(defwidget mode_button [label value tooltip]
+  (button
+    :onclick "eww update mode=${value}"
+    :tooltip tooltip
+    :class "mode-button"
+    label))
+
+;; ------------------------------- MAIN ---------------------------------
+(defwidget dashboard []
+  (box
+    :orientation "v"
+    :space-evenly false
+    :class "dashboard"
+
+    ;; TOP: avatar + identity + skills + compact telemetry
+    (box
+      :orientation "h"
+      :space-evenly false
+      :class "profile-row"
+
+      (box
+        :class "avatar-shell"
+        (box
+          :class "avatar"
+          :style "background-image: url('${profile_image}');"))
+
+      (box
+        :orientation "v"
+        :space-evenly false
+        :hexpand true
+        :class "identity"
+        (label :text profile_name :class "name")
+        (label :text profile_role :class "role")
+        (box
+          :orientation "v"
+          :space-evenly false
+          :class "bio-block"
+          (label :text profile_bio :class "bio")
+          (label :text profile_future :class "future"))
+        (box
+          :orientation "v"
+          :space-evenly false
+          :spacing 3
+          :class "skills"
+          (skill_item :icon "" :text "Local AI • Agents • Automation" :accent "#8ccf7e")
+          (skill_item :icon "" :text "Computer Vision • System Control" :accent "#67b0e8")
+          (skill_item :icon "" :text "Low-Level • Chips • Robotics" :accent "#c47fd5")
+          (skill_item :icon "" :text "Linux • Neovim • Git" :accent "#6cbfbf")))
+
+      (box
+        :orientation "v"
+        :space-evenly false
+        :halign "end"
+        :class "time-panel"
+        (label :text current_time :class "time")
+        (label :text current_date :class "date")
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 6
+          :class "micro-stats"
+          (box :class "micro-stat"
+            (label :text "󰔏" :class "micro-icon temp")
+            (label :text cpu_temp :class "micro-value"))
+          (box :class "micro-stat"
+            (label :text "󰅐" :class "micro-icon up")
+            (label :text uptime_text :class "micro-value")))))
+
+    ;; BOTTOM STRIP
+    (box
+      :orientation "h"
+      :space-evenly false
+      :class "bottom-row"
+
+      ;; LEFT: GitHub / WakaTime / Monkeytype
+      (box
+        :orientation "h"
+        :space-evenly false
+        :spacing 8
+        :class "activity-panel"
+        (activity_link :glyph "" :tooltip "GitHub" :url "https://github.com/Zzzzzzzpeng" :state github_state :accent "#8ccf7e")
+        (activity_link :glyph "" :tooltip "WakaTime" :url "https://wakatime.com" :state wakatime_today :accent "#6cbfbf")
+        (icon_button :glyph "" :tooltip "Monkeytype" :url "https://monkeytype.com" :class_name "monkey-icon"))
+
+      ;; CENTER: devicon-only stack, grouped by subtle separators
+      (box
+        :orientation "h"
+        :space-evenly false
+        :hexpand true
+        :halign "center"
+        :spacing 12
+        :class "dev-stack"
+        (label :text "  " :class "dev-icons" :tooltip "Python • JavaScript • Bash")
+        (label :text "│" :class "dev-sep")
+        (label :text "  " :class "dev-icons" :tooltip "C • C++ • Rust")
+        (label :text "│" :class "dev-sep")
+        (label :text "  " :class "dev-icons" :tooltip "ROS • Arduino • Raspberry Pi")
+        (label :text "│" :class "dev-sep")
+        (label :text "  " :class "dev-icons" :tooltip "Linux • Neovim • Git")
+        (label :text "│" :class "dev-sep")
+        (label :text " " :class "dev-icons" :tooltip "PostgreSQL • JSON"))
+
+      ;; RIGHT: manual workflow mode
+      (box
+        :orientation "v"
+        :space-evenly false
+        :spacing 4
+        :class "mode-panel"
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 5
+          :halign "end"
+          (label :text "MODE" :class "mode-caption")
+          (label :text mode :class "mode-current"))
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 4
+          (mode_button :label "AI" :value "AI" :tooltip "Agent-driven / autonomous workflow")
+          (mode_button :label "H" :value "HUMAN" :tooltip "Manual / hands-on workflow")
+          (mode_button :label "G" :value "GOD" :tooltip "Full-stack / maximum output mode"))))))
+
+;; -------------------------------- WINDOW -------------------------------
+(defwindow dashboard
+  :monitor "<primary>"
+  :geometry
+    (geometry
+      :x "0px"
+      :y "0px"
+      :width "920px"
+      :height "360px"
+      :anchor "center center")
+  :stacking "fg"
+  :windowtype "dialog"
+  :wm-ignore false
+  :exclusive false
+  :focusable true
+  (dashboard))

@@ -1,31 +1,89 @@
 #!/bin/sh
 
-# ---- Cursor ----
+# ============================================================
+# BSPWM STARTUP
+# ============================================================
+
+
+# ------------------------------------------------------------
+# CURSOR
+# ------------------------------------------------------------
+
 export XCURSOR_THEME="yuika-pixel-cursors"
 export XCURSOR_SIZE=24
-# ---- Laptop power script ----
+
+
+# ------------------------------------------------------------
+# LAPTOP / DISPLAY SETUP
+# ------------------------------------------------------------
+
+~/.screenlayout/leftlaptop.sh
 
 sleep 1
-# ---- Monitor: external HDMI only ----
-xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 100
 
-# ---- Load X resources ----
-[ -f "$HOME/.Xresources" ] && xrdb -merge -I"$HOME" "$HOME/.Xresources"
+# External HDMI monitor = primary
+xrandr \
+    --output HDMI-1 \
+    --primary \
+    --mode 1920x1080 \
+    --rate 100
 
-# ---- Root cursor ----
+# eDP disabled by screenlayout script
+# xrandr --output eDP-1 --off
+
+
+# ------------------------------------------------------------
+# X RESOURCES
+# ------------------------------------------------------------
+
+[ -f "$HOME/.Xresources" ] && \
+    xrdb -merge -I"$HOME" "$HOME/.Xresources"
+
+
+# ------------------------------------------------------------
+# ROOT CURSOR
+# ------------------------------------------------------------
+
 xsetroot -cursor_name left_ptr
 
-# ---- Background services ----
-pgrep -x sxhkd >/dev/null || sxhkd &
-pgrep -x picom >/dev/null || picom --config "$HOME/.config/picom/picom.conf" &
-pgrep -x dunst >/dev/null || dunst &
-pgrep -x udiskie >/dev/null || udiskie --tray &
-pgrep -x lxqt-policykit-agent >/dev/null || lxqt-policykit-agent &
 
-# ---- Workspaces ----
+# ============================================================
+# BACKGROUND SERVICES
+# ============================================================
+
+pgrep -x sxhkd >/dev/null || sxhkd &
+
+pgrep -x picom >/dev/null || \
+    picom --config "$HOME/.config/picom/picom.conf" &
+
+pgrep -x dunst >/dev/null || dunst &
+
+pgrep -x udiskie >/dev/null || \
+    udiskie --tray &
+
+pgrep -x lxqt-policykit-agent >/dev/null || \
+    lxqt-policykit-agent &
+
+
+# ============================================================
+# NVIDIA
+# ============================================================
+
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+
+# ============================================================
+# WORKSPACES
+# ============================================================
+
 bspc monitor HDMI-1 -d 1 2 3 4 5 6
-bspc monitor eDP-1 -d 1 2 3 4 5 6
-# ---- bspwm ----
+
+
+# ============================================================
+# BSPWM
+# ============================================================
+
 bspc config border_width 1
 bspc config window_gap 20
 bspc config split_ratio 0.52
@@ -37,37 +95,116 @@ bspc config focus_follows_pointer true
 bspc config pointer_follows_focus false
 bspc config click_to_focus button1
 
-# ---- Borders ----
+
+# ============================================================
+# BORDERS
+# ============================================================
+
 bspc config focused_border_color "#182124"
 bspc config active_border_color "#45475a"
 bspc config normal_border_color "#313244"
 bspc config presel_feedback_color "#45475a"
 
-# ---- Mouse ----
+
+# ============================================================
+# MOUSE
+# ============================================================
+
 bspc config pointer_modifier super
+
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
 
-# ---- Rules ----
-bspc rule -a Pavucontrol state=floating center=true
-bspc rule -a VLC state=floating
-bspc rule -a mpv state=floating
-bspc rule -a Lxappearance state=floating
 
-# ---- Keyboard / power management ----
+# ============================================================
+# WINDOW RULES
+# ============================================================
+
+# Audio mixer
+bspc rule -a Pavucontrol \
+    state=floating \
+    center=on
+
+# Video
+bspc rule -a VLC \
+    state=floating
+
+bspc rule -a mpv \
+    state=floating
+
+# GTK appearance tool
+bspc rule -a Lxappearance \
+    state=floating
+
+
+# ============================================================
+# POLYBAR SPACE
+# ============================================================
+
+bspc config top_padding 0
+bspc config bottom_padding 45
+
+
+# ============================================================
+# EWW DASHBOARD
+# FLOATING POPUP
+# ============================================================
+
+bspc rule -a Eww \
+    state=floating \
+    center=on \
+    layer=above \
+    follow=on \
+    focus=on \
+    border=off
+
+
+# ============================================================
+# KEYBOARD / POWER MANAGEMENT
+# ============================================================
+
 xset r rate 200 50
+
 xset s off
 xset -dpms
 xset s noblank
 
-# ---- Wallpaper ----
+
+# ============================================================
+# WALLPAPER
+# ============================================================
+
 nitrogen --restore
 
 
-export __NV_PRIME_RENDER_OFFLOAD=1
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# ============================================================
+# POLYBAR — BRENDA
+# ============================================================
+
+# Kill existing Polybar processes
+pkill -x polybar 2>/dev/null
+
+# Start Brenda on the HDMI primary monitor
+MONITOR=HDMI-1 \
+polybar \
+    -c "$HOME/.config/polybar/brenda/config.ini" \
+    brenda \
+    >"$HOME/.cache/polybar.log" 2>&1 &
 
 
+# ============================================================
+# EWW DAEMON
+# ============================================================
+
+# Start Eww daemon only.
+# Dashboard itself is NOT opened at login.
+# ~/.config/polybar/eww-dashboard.sh controls open/close.
+
+pgrep -x eww >/dev/null || \
+    eww daemon >/tmp/eww-daemon.log 2>&1 &
 
 
+# ============================================================
+# END
+# ============================================================

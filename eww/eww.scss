@@ -1,0 +1,289 @@
+/* ======================================================================
+   NEOFTECH // EVERBLUSH
+   Compact profile card
+   ====================================================================== */
+
+$bg:         #141b1e;
+$surface:    #1e2528;
+$surface-2:  #232a2d;
+$surface-3:  #2a3134;
+$white:      #dadada;
+$gray:       #b3b9b8;
+$muted:      #89918f;
+$green:      #8ccf7e;
+$yellow:     #e5c76b;
+$blue:       #67b0e8;
+$cyan:       #6cbfbf;
+$magenta:    #c47fd5;
+$red:        #e57474;
+$border: rgba(218, 218, 218, 0.075);
+
+* {
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+  color: $white;
+}
+
+window {
+  background-color: transparent;
+}
+
+.dashboard {
+  min-width: 920px;
+  min-height: 360px;
+  padding: 14px;
+  background-color: $bg;
+  border: 1px solid rgba(108, 191, 191, 0.16);
+  border-radius: 18px;
+}
+
+/* ------------------------------ TOP ------------------------------ */
+.profile-row {
+  min-height: 286px;
+  padding: 14px;
+  background-color: $surface;
+  border: 1px solid $border;
+  border-radius: 14px;
+}
+
+.avatar-shell {
+  min-width: 184px;
+  min-height: 256px;
+  margin-right: 16px;
+  padding: 5px;
+  background-color: rgba(108, 191, 191, 0.06);
+  border: 1px solid rgba(108, 191, 191, 0.20);
+  border-radius: 14px;
+}
+
+.avatar {
+  min-width: 174px;
+  min-height: 246px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $surface-3;
+  border-radius: 10px;
+}
+
+.identity {
+  padding: 4px 10px 0 0;
+}
+
+.name {
+  color: $white;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.role {
+  margin-top: 5px;
+  color: $cyan;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.bio-block {
+  margin-top: 12px;
+  padding: 8px 9px;
+  background-color: $surface-2;
+  border: 1px solid rgba(218, 218, 218, 0.04);
+  border-radius: 8px;
+}
+
+.bio {
+  color: $gray;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.future {
+  margin-top: 4px;
+  color: $muted;
+  font-size: 7px;
+  font-weight: 600;
+}
+
+.skills {
+  margin-top: 12px;
+}
+
+.skill-item {
+  min-height: 22px;
+}
+
+.skill-icon {
+  min-width: 19px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.skill-label {
+  color: $white;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.time-panel {
+  min-width: 172px;
+  padding-left: 10px;
+}
+
+.time {
+  color: $white;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+}
+
+.date {
+  margin-top: 2px;
+  color: $muted;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+
+.micro-stats {
+  margin-top: 22px;
+}
+
+.micro-stat {
+  min-width: 76px;
+  min-height: 27px;
+  padding: 5px 7px;
+  background-color: $surface-2;
+  border: 1px solid rgba(218, 218, 218, 0.045);
+  border-radius: 7px;
+}
+
+.micro-icon {
+  margin-right: 5px;
+  font-size: 10px;
+}
+
+.temp {
+  color: $yellow;
+}
+
+.up {
+  color: $green;
+}
+
+.micro-value {
+  color: $white;
+  font-size: 7px;
+  font-weight: 800;
+}
+
+/* ------------------------------ BOTTOM ---------------------------- */
+.bottom-row {
+  min-height: 45px;
+  margin-top: 9px;
+}
+
+.activity-panel,
+.dev-stack,
+.mode-panel {
+  min-height: 43px;
+  padding: 7px 9px;
+  background-color: $surface;
+  border: 1px solid $border;
+  border-radius: 10px;
+}
+
+.activity-panel {
+  min-width: 208px;
+}
+
+.activity-item {
+  min-width: 42px;
+}
+
+.icon-button {
+  min-width: 28px;
+  min-height: 27px;
+  background-color: $surface-2;
+  border: 1px solid rgba(218, 218, 218, 0.05);
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.icon-button:hover {
+  background-color: $surface-3;
+  border-color: rgba(103, 176, 232, 0.22);
+}
+
+.monkey-icon {
+  color: $yellow;
+}
+
+.activity-dot {
+  font-size: 6px;
+}
+
+.activity-state {
+  color: $muted;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.dev-stack {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.dev-icons {
+  color: $gray;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.dev-icons:hover {
+  color: $white;
+}
+
+.dev-sep {
+  color: rgba(218, 218, 218, 0.15);
+  font-size: 10px;
+}
+
+.mode-panel {
+  min-width: 168px;
+}
+
+.mode-caption {
+  color: $muted;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+}
+
+.mode-current {
+  color: $magenta;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+.mode-button {
+  min-width: 31px;
+  min-height: 18px;
+  padding: 0 5px;
+  color: $gray;
+  background-color: $surface-2;
+  border: 1px solid rgba(218, 218, 218, 0.05);
+  border-radius: 5px;
+  font-size: 6px;
+  font-weight: 800;
+}
+
+.mode-button:hover {
+  color: $white;
+  background-color: $surface-3;
+  border-color: rgba(196, 127, 213, 0.24);
+}
